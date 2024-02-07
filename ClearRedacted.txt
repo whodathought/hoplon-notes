@@ -1,0 +1,19 @@
+Sub Test()
+  Call ClearRedactedText(Range("A1:C7"))
+End Sub
+
+
+Sub ClearRedactedText(rng As Range)
+'
+'Clears the contents of any cell in the given range that has a font colour the same as the background colour
+'
+'
+Dim cell As Range
+
+For Each cell In rng.Cells
+    If cell.Interior.Color = cell.Font.Color Then
+       cell.ClearContents
+    End If
+Next cell
+    
+End Sub
